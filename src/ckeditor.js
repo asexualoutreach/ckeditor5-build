@@ -27,6 +27,8 @@ import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 
+import HeadingButtons from './plugins/headingbuttons';
+
 import '../theme/theme.css';
 
 export default class BalloonEditor extends BalloonEditorBase {}
@@ -43,6 +45,7 @@ BalloonEditor.builtinPlugins = [
 	CKFinder,
 	EasyImage,
 	Heading,
+	HeadingButtons,
 	Image,
 	ImageCaption,
 	ImageStyle,
