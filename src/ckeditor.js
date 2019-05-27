@@ -27,6 +27,7 @@ import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 
+import BlockToolbarDisplay from './plugins/blocktoolbardisplay';
 import HeadingButtons from './plugins/headingbuttons';
 
 import '../theme/theme.css';
@@ -39,6 +40,7 @@ BalloonEditor.builtinPlugins = [
 	UploadAdapter,
 	Autoformat,
 	BlockToolbar,
+	BlockToolbarDisplay,
 	Bold,
 	Italic,
 	BlockQuote,
