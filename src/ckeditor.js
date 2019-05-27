@@ -31,6 +31,10 @@ import BlockToolbarDisplay from './plugins/blocktoolbardisplay';
 import HeadingButtons from './plugins/headingbuttons';
 
 import '../theme/theme.css';
+import outsetLeftIcon from '../theme/icons/image-outset-left.svg';
+import insetCenterIcon from '../theme/icons/image-inset-center.svg';
+import outsetCenterIcon from '../theme/icons/image-outset-center.svg';
+import fullWidthIcon from '../theme/icons/image-full-width.svg';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -77,9 +81,38 @@ BalloonEditor.defaultConfig = {
 		]
 	},
 	image: {
+		styles: [
+			{
+				name: 'outsetLeft',
+				title: 'Outset left',
+				icon: outsetLeftIcon,
+				className: 'outset-left'
+			},
+			{
+				name: 'insetCenter',
+				title: 'Inset center',
+				icon: insetCenterIcon,
+				isDefault: true,
+				className: 'inset-center'
+			},
+			{
+				name: 'outsetCenter',
+				title: 'Outset center',
+				icon: outsetCenterIcon,
+				className: 'outset-center'
+			},
+			{
+				name: 'fullWidth',
+				title: 'Full width',
+				icon: fullWidthIcon,
+				className: 'full-width'
+			}
+		],
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:outsetLeft',
+			'imageStyle:insetCenter',
+			'imageStyle:outsetCenter',
+			'imageStyle:fullWidth',
 			'|',
 			'imageTextAlternative'
 		]
