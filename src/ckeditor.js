@@ -26,8 +26,6 @@ import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-import Table from '@ckeditor/ckeditor5-table/src/table';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
 import '../theme/theme.css';
 
@@ -54,21 +52,13 @@ BalloonEditor.builtinPlugins = [
 	List,
 	MediaEmbed,
 	Paragraph,
-	PasteFromOffice,
-	Table,
-	TableToolbar
+	PasteFromOffice
 ];
 
 // Editor configuration.
 BalloonEditor.defaultConfig = {
 	blockToolbar: [
-		'heading',
-		'|',
-		'bulletedList',
-		'numberedList',
 		'imageUpload',
-		'blockQuote',
-		'insertTable',
 		'mediaEmbed'
 	],
 	toolbar: {
@@ -76,8 +66,9 @@ BalloonEditor.defaultConfig = {
 			'bold',
 			'italic',
 			'link',
-			'undo',
-			'redo'
+			'heading1',
+			'heading2',
+			'blockQuote',
 		]
 	},
 	image: {
@@ -88,13 +79,7 @@ BalloonEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
-	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'en',
+	placeholder: 'Tell your story...',
 };
