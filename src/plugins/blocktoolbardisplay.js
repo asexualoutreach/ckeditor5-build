@@ -19,10 +19,12 @@ export default class BlockToolbarDisplay extends Plugin {
 		// Get the first selected block, button will be attached to this element.
 		const modelTarget = Array.from( model.document.selection.getSelectedBlocks() )[ 0 ];
 
-		if ( modelTarget.isEmpty ) {
-			this.showToolbarButton();
-		} else {
+		if ( !modelTarget.isEmpty ) {
 			this.hideToolbarButton();
+		} else if ( modelTarget.parent && modelTarget.parent.name === 'blockQuote' ) {
+			this.hideToolbarButton();
+		} else {
+			this.showToolbarButton();
 		}
 	}
 

@@ -45,14 +45,12 @@ export default class HorizontalRule extends Plugin {
 
 			// Callback executed once the button is clicked.
 			view.on( 'execute', () => {
-
 				model.change( writer => {
 					const horizontalRuleElement = writer.createElement( 'horizontalRule' );
 
 					// Insert the hr at the end of the selection
 					writer.insert( horizontalRuleElement, doc.selection.focus, 'before' );
 				} );
-
 			} );
 
 			return view;
