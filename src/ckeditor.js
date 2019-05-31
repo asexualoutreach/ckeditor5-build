@@ -29,6 +29,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 
 import BlockToolbarDisplay from './plugins/blocktoolbardisplay';
 import HeadingButtons from './plugins/headingbuttons';
+import HorizontalRule from './plugins/horizontalrule';
 
 import '../theme/theme.css';
 import outsetLeftIcon from '../theme/icons/image-outset-left.svg';
@@ -52,6 +53,7 @@ BalloonEditor.builtinPlugins = [
 	EasyImage,
 	Heading,
 	HeadingButtons,
+	HorizontalRule,
 	Image,
 	ImageCaption,
 	ImageStyle,
@@ -67,6 +69,7 @@ BalloonEditor.builtinPlugins = [
 // Editor configuration.
 BalloonEditor.defaultConfig = {
 	blockToolbar: [
+		'horizontalRule',
 		'imageUpload',
 		'mediaEmbed'
 	],
