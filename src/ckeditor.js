@@ -26,10 +26,16 @@ import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
-import Table from '@ckeditor/ckeditor5-table/src/table';
-import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+
+import BlockToolbarDisplay from './plugins/blocktoolbardisplay';
+import HeadingButtons from './plugins/headingbuttons';
+import HorizontalRule from './plugins/horizontalrule';
 
 import '../theme/theme.css';
+import outsetLeftIcon from '../theme/icons/image-outset-left.svg';
+import insetCenterIcon from '../theme/icons/image-inset-center.svg';
+import outsetCenterIcon from '../theme/icons/image-outset-center.svg';
+import fullWidthIcon from '../theme/icons/image-full-width.svg';
 
 export default class BalloonEditor extends BalloonEditorBase {}
 
@@ -39,12 +45,15 @@ BalloonEditor.builtinPlugins = [
 	UploadAdapter,
 	Autoformat,
 	BlockToolbar,
+	BlockToolbarDisplay,
 	Bold,
 	Italic,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
 	Heading,
+	HeadingButtons,
+	HorizontalRule,
 	Image,
 	ImageCaption,
 	ImageStyle,
@@ -54,21 +63,14 @@ BalloonEditor.builtinPlugins = [
 	List,
 	MediaEmbed,
 	Paragraph,
-	PasteFromOffice,
-	Table,
-	TableToolbar
+	PasteFromOffice
 ];
 
 // Editor configuration.
 BalloonEditor.defaultConfig = {
 	blockToolbar: [
-		'heading',
-		'|',
-		'bulletedList',
-		'numberedList',
+		'horizontalRule',
 		'imageUpload',
-		'blockQuote',
-		'insertTable',
 		'mediaEmbed'
 	],
 	toolbar: {
@@ -76,25 +78,49 @@ BalloonEditor.defaultConfig = {
 			'bold',
 			'italic',
 			'link',
-			'undo',
-			'redo'
+			'heading1',
+			'heading2',
+			'blockQuote',
 		]
 	},
 	image: {
+		styles: [
+			{
+				name: 'outsetLeft',
+				title: 'Outset left',
+				icon: outsetLeftIcon,
+				className: 'outset-left'
+			},
+			{
+				name: 'insetCenter',
+				title: 'Inset center',
+				icon: insetCenterIcon,
+				isDefault: true,
+				className: 'inset-center'
+			},
+			{
+				name: 'outsetCenter',
+				title: 'Outset center',
+				icon: outsetCenterIcon,
+				className: 'outset-center'
+			},
+			{
+				name: 'fullWidth',
+				title: 'Full width',
+				icon: fullWidthIcon,
+				className: 'full-width'
+			}
+		],
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:outsetLeft',
+			'imageStyle:insetCenter',
+			'imageStyle:outsetCenter',
+			'imageStyle:fullWidth',
 			'|',
 			'imageTextAlternative'
 		]
 	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
-	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'en',
+	placeholder: 'Tell your story...',
 };
